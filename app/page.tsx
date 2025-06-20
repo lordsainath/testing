@@ -234,22 +234,68 @@ export default function SnijalAquaWebsite() {
             </div>
 
             {/* Stats Counter */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {[
-                { label: "Happy Customers", value: counters.customers, suffix: "+" },
-                { label: "Bottles Delivered", value: counters.bottles, suffix: "+" },
-                { label: "Cities Served", value: counters.cities, suffix: "+" },
-                { label: "Years of Trust", value: counters.years, suffix: "" },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[rgb(1,117,203)] mb-2">
-                    {stat.value.toLocaleString()}
-                    {stat.suffix}
-                  </div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+   <div className="max-w-7xl mx-auto px-8 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 relative overflow-hidden">
+      {/* Background decorative elements */}
+    
+      {[
+        {
+          label: "Is Our First Priority",
+          value: "Your Satisfaction",
+          icon: "🤝",
+          gradient: "from-emerald-400 to-cyan-500",
+          shadow: "shadow-emerald-200/50"
+        },
+        {
+          label: "Quality Assured",
+          value: "In Every Bottle",
+          icon: "💧",
+          gradient: "from-blue-400 to-indigo-500",
+          shadow: "shadow-blue-200/50"
+        },
+        {
+          label: "Locally Rooted",
+          value: "Serving Now",
+          icon: "📍",
+          gradient: "from-purple-400 to-pink-500",
+          shadow: "shadow-purple-200/50"
+        },
+        {
+          label: "Built on Trust",
+          value: "New Beginnings",
+          icon: "🚀",
+          gradient: "from-orange-400 to-red-500",
+          shadow: "shadow-orange-200/50"
+        },
+      ].map((stat, index) => (
+        <div
+          key={index}
+          className={`bg-white/80 backdrop-blur-sm border border-white/20 shadow-2xl ${stat.shadow} rounded-3xl p-8 text-center transition-all duration-500 hover:scale-110 hover:rotate-1 hover:shadow-3xl hover:bg-white/90 group cursor-pointer relative overflow-hidden`}
+        >
+          {/* Card shimmer effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          
+          <div className={`mx-auto mb-6 w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br ${stat.gradient} text-3xl shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}>
+            {stat.icon}
+          </div>
+          
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent mb-2 transform transition-all duration-300 group-hover:scale-105">
+            {stat.value}
+          </h3>
+          
+          <div className="h-1 w-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full mx-auto mb-3 transform transition-all duration-300 group-hover:w-24"></div>
+          
+          <p className="text-sm text-slate-600 font-medium tracking-wide uppercase transform transition-all duration-300 group-hover:text-slate-700">
+            {stat.label}
+          </p>
+          
+          {/* Floating particles effect */}
+          <div className="absolute top-4 right-4 w-2 h-2 bg-blue-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+          <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-bounce"></div>
+        </div>
+      ))}
+    </div>
+
+
           </div>
         </div>
 
